@@ -1,0 +1,64 @@
+body{
+    position: relative;
+    margin: 30px;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(100, 100, 100, .75)
+}
+.modal{
+    width: 375px;
+    margin: 15% auto auto;
+    position: relative;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #778;
+    border-radius: 5px;
+    padding: 30px 20px;
+}
+.modal-close{
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    cursor: pointer;
+}
+.hidden{
+    display: none;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+.grid-item{
+    border: solid gray 1px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    max-width: 275px;
+}
+.profile-pic{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+.employee-info{
+    list-style: none;
+    padding-left: 10px;
+}
+.employee-info li{
+    padding:5px 0;
+}
+.employee-name{
+    font-size: larger;
+    font-weight: 700;
+}
+.employee-email,
+.employee-location{
+    font-size: small;
+}
