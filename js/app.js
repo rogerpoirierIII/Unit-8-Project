@@ -1,18 +1,20 @@
-// =========================================================================
-// ------------------------------VARIABLES----------------------------------
-//  ========================================================================
+
+// VARIABLES
+
+
 let employees = [];
 const api = `https://randomuser.me/api/?results=12&inc=name, picture,
 email, location, phone, dob &noinfo &nat=US`;
-let employeeContainer = document.querySelectorAll('.grid-item');
 const gridContainer = document.getElementById('grid-container')
+const employeeList = gridContainer.children;
 const overlay = document.querySelector('.overlay');
 const focusContainer = document.querySelector('.focus');
 const focusBtnClose = document.querySelector('.focus-close');
+const searchBar = document.getElementById('search');
 
-// =========================================================================
-// ------------------------------FUNCTIONS----------------------------------
-//  ========================================================================
+
+// FUNCTIONS
+
 
 fetchEmployeeData(api)
 
@@ -85,10 +87,23 @@ function showFocus(i){
         next.style.display = 'none'
     }
 }
+function filterEmployees(value){
+    let employeeName = [];
+    for (let i = 0; i < employeeList.length; i++) {
+        employeeName[i] = employeeList[i].querySelector('.employee-name').textContent;
+        if(!employeeName[i].toLowerCase().includes(value.toLowerCase())){
+            employeeList[i].style.display = 'none'
+        }else{
+            employeeList[i].style.display = 'flex'
+            
+        }
+        
+    }
+}
 
-// =========================================================================
-// -----------------------------EVENT LISTENERS-----------------------------
-//  ========================================================================
+
+//  EVENT LISTENERS
+
 
 gridContainer.addEventListener('click',e=>{
 
