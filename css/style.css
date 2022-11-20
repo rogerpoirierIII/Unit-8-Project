@@ -43,27 +43,28 @@ header h3{
     padding: 30px 20px;
 }
 .focus-btns{
+    position: absolute;
     cursor: pointer;
     border: none;
-    background: white;
 }
 .focus-close{
-    position: absolute;
     right: 15px;
     top: 5px;
+    background: white;
 }
 .next,.back{
-    position: absolute;
     top: 150px;
     bottom: 0px;
     font-size: 30px;
     height: 50px;
+    border-radius: 50px;
+    background-color: rgba(100, 100, 100, .2);
 }
 .next{
-    left: 350px;
+    left: 325px;
 }
 .back{
-    right: 350px;
+    right: 325px;
 }
 .hidden{
     display: none;
