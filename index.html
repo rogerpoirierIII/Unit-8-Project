@@ -10,6 +10,7 @@
 <body>
     <header>
         <h3>AWESOME STARTUP EMPLOYEE DIRECTORY</h3>
+        <input type="text" id="search">
     </header>
     <main>
         <section id="grid-container">
@@ -139,21 +140,20 @@
 </main>
 
     <div class="overlay hidden">
-        <div class="focus">
-            <!-- <button class="focus-close">X</button>
-            <div class="focus-content">
-            <img class="profile-pic" src=""/>
+        <div class="focus" data-index="${i}">
+            <button class="focus-close focus-btns"></button>
+            <img class="profile-pic" src="" />
             <div class="employee-info">
                 <h2 class="employee-name"></h2>
                 <p class="employee-email"></p>
-                <p class="employee-location"></p>
-                <hr />
-                <button class="back">&lArr;;</button>
-                <p></p>
-                <p class="employee-location"></p>
-                <p></p>
-                </div>
-            </div> -->
+                <p class="employee-address"></p>
+                <button class="next focus-btns">&rArr;</button>
+                <button class="back focus-btns">&lArr;</button>
+            <hr />
+                <p>${phone}</p>
+                <p class="employee-location">${street.number}, ${street.name}, ${state} ${postcode}</p>
+                <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+            </div>
         </div>
     </div>
 

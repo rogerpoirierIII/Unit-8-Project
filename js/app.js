@@ -9,11 +9,13 @@ const gridContainer = document.getElementById('grid-container')
 const overlay = document.querySelector('.overlay');
 const focusContainer = document.querySelector('.focus');
 const focusBtnClose = document.querySelector('.focus-close');
-let counter = 0;
 
 // =========================================================================
 // ------------------------------FUNCTIONS----------------------------------
 //  ========================================================================
+
+fetchEmployeeData(api)
+
 
 function fetchEmployeeData(url){
     fetch(url)
@@ -49,8 +51,6 @@ function displayEmployees(data){
 })
 
 gridContainer.innerHTML = html;
-
-counter++;
 }
 function showFocus(i){
     let { name, dob, phone, email, location: { city, street, state, postcode
@@ -59,27 +59,32 @@ function showFocus(i){
     let date = new Date(dob.date);
 
     const html =`
-        <button class="focus-close">X</button>
-        <img class="profile-pic" src="${picture.large}" />
-        <div class="employee-info">
-            <h2 class="employee-name">${name.first} ${name.last}</h2>
-            <p class="employee-email">${email}</p>
-            <p class="employee-address">${city}</p>
-            <button class="next">&rArr;</button>
-            <button class="back">&lArr;</button>
-
-        <hr />
-            <p>${phone}</p>
-            <p class="employee-location">${street.number}, ${street.name}, ${state} ${postcode}</p>
-            <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
-        </div>
+        <div class="focus" data-index="${i}">
+            <button class="focus-close focus-btns">X</button>
+            <img class="profile-pic" src="${picture.large}" />
+            <div class="employee-info">
+                <h2 class="employee-name">${name.first} ${name.last}</h2>
+                <p class="employee-email">${email}</p>
+                <p class="employee-address">${city}</p>
+                <button class="next focus-btns">&rArr;</button>
+                <button class="back focus-btns">&lArr;</button>
+            <hr />
+                <p>${phone}</p>
+                <p class="employee-location">${street.number}, ${street.name}, ${state} ${postcode}</p>
+                <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+            </div>
                 `;
     overlay.classList.remove('hidden');
-    focusContainer.innerHTML = html;
+    overlay.innerHTML = html;
+    let focusIndex = parseInt(overlay.children[0].getAttribute('data-index'))
+    const back = overlay.querySelector('.back');
+    const next = overlay.querySelector('.next')
+    if(focusIndex === 0){
+        back.style.display = 'none';
+    }else if (focusIndex === 11){
+        next.style.display = 'none'
+    }
 }
-
-
-    fetchEmployeeData(api)
 
 // =========================================================================
 // -----------------------------EVENT LISTENERS-----------------------------
@@ -96,8 +101,16 @@ gridContainer.addEventListener('click',e=>{
 
 });
 
-focusContainer.addEventListener('click',(e) =>{
-    if (e.target.className === 'focus-close') {
+overlay.addEventListener('click',(e) =>{
+    if (e.target.className === 'focus-close focus-btns') {
         overlay.classList.add('hidden');        
+    }else if(e.target.className === 'back focus-btns'){
+        const focusBox = overlay.children[0];
+        const index = parseInt(focusBox.getAttribute('data-index'));
+        showFocus(index-1);       
+    }else if(e.target.className === 'next focus-btns'){
+        const focusBox = overlay.children[0];
+        const index = parseInt(focusBox.getAttribute('data-index'));
+        showFocus(index+1);
     }
 })

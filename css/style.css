@@ -2,6 +2,14 @@ body{
     position: relative;
     margin: 20px;
 }
+header{
+display: flex;
+justify-content: space-between;
+}
+#search{
+    margin: auto;
+    padding: 5px;
+}
 .overlay {
     position: absolute;
     top: 0;
@@ -20,11 +28,28 @@ body{
     border-radius: 5px;
     padding: 30px 20px;
 }
+.focus-btns{
+    cursor: pointer;
+    border: none;
+    background: white;
+}
 .focus-close{
     position: absolute;
     right: 15px;
     top: 5px;
-    cursor: pointer;
+}
+.next,.back{
+    position: absolute;
+    top: 150px;
+    bottom: 0px;
+    font-size: 30px;
+    height: 50px;
+}
+.next{
+    left: 350px;
+}
+.back{
+    right: 350px;
 }
 .hidden{
     display: none;
