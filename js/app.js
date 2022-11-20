@@ -65,6 +65,9 @@ function showFocus(i){
             <h2 class="employee-name">${name.first} ${name.last}</h2>
             <p class="employee-email">${email}</p>
             <p class="employee-address">${city}</p>
+            <button class="next">&rArr;</button>
+            <button class="back">&lArr;</button>
+
         <hr />
             <p>${phone}</p>
             <p class="employee-location">${street.number}, ${street.name}, ${state} ${postcode}</p>
