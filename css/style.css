@@ -1,6 +1,6 @@
 body{
     position: relative;
-    margin: 30px;
+    margin: 20px;
 }
 .overlay {
     position: absolute;
@@ -29,18 +29,17 @@ body{
 .hidden{
     display: none;
 }
-.grid-container{
+#grid-container{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 25px;
+    gap: 15px;
 }
 .grid-item{
     border: solid gray 1px;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    padding: 15px;
-    max-width: 275px;
+    padding: 10px;
 }
 .profile-pic{
     border-radius: 50%;
