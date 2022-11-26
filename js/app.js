@@ -73,7 +73,7 @@ function showFocus(i){
             <hr />
                 <p>${phone}</p>
                 <p class="employee-location">${street.number}, ${street.name}, ${state} ${postcode}</p>
-                <p>Birthday:${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+                <p>Birthday:${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}</p>
             </div>
                 `;
     overlay.classList.remove('hidden');
